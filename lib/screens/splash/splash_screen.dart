@@ -169,7 +169,7 @@ class SplashScreen extends StatelessWidget {
                             ),
                           ),
                           child: const Icon(
-                            CupertinoIcons.lock,
+                            CupertinoIcons.lock_open,
                             color: Colors.lightBlueAccent,
                           ),
                         ),

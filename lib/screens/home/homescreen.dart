@@ -1,7 +1,11 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:telsaapp/screens/climate/climate.dart';
+import 'package:telsaapp/widget/constants.dart';
 import 'package:telsaapp/widget/custom_button.dart';
+import 'package:telsaapp/widget/neuomorphic_circle.dart';
+import 'package:telsaapp/widget/progress_ring.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,30 +15,34 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 19, 19, 19),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xff2A2D32),
-        onPressed: () {},
-        child: const Icon(Icons.add, size: 50, color: Color.fromARGB(255, 15, 104, 177),)
-        //params
-      ),
+          backgroundColor: const Color(0xff2A2D32),
+          onPressed: () {},
+          child: const Icon(
+            Icons.add,
+            size: 50,
+            color: Color.fromARGB(255, 15, 104, 177),
+          )
+          //params
+          ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar(
         icons: iconList,
         activeIndex: 0,
         blurEffect: true,
         splashColor: const Color.fromARGB(255, 15, 104, 177),
-        splashRadius:  10,
+        splashRadius: 10,
         activeColor: const Color.fromARGB(255, 15, 104, 177),
         gapLocation: GapLocation.center,
         notchSmoothness: NotchSmoothness.verySmoothEdge,
         leftCornerRadius: 32,
-        inactiveColor:const Color.fromARGB(255, 120, 126, 134),
+        inactiveColor: const Color.fromARGB(255, 120, 126, 134),
         rightCornerRadius: 32,
         backgroundColor: const Color(0xff2A2D32),
         onTap: (index) => (() => index),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -48,7 +56,7 @@ class HomeScreen extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
-            gradient:  LinearGradient(
+            gradient: LinearGradient(
               begin: Alignment(0.0, -1.0),
               end: Alignment(0.0, 0.9999999999999998),
               stops: [0.0, 0.991706132888794],
@@ -110,6 +118,9 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Image.asset('assets/img/tesla.png'),
               ),
+
+              
+
               const SizedBox(
                 height: 10,
               ),
@@ -185,8 +196,8 @@ class HomeScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
-                      children: const [
-                        ListTile(
+                      children:  [
+                        const ListTile(
                           leading: Icon(
                             CupertinoIcons.car_detailed,
                             color: Color.fromARGB(255, 153, 148, 148),
@@ -205,11 +216,17 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         ListTile(
-                          leading: Icon(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ClimateScreen()));
+                          },
+                          leading: const Icon(
                             Icons.filter_vintage,
                             color: Color.fromARGB(255, 153, 148, 148),
                           ),
-                          subtitle: Text(
+                          subtitle: const Text(
                             "Interior 20˚C",
                             style: TextStyle(
                               color: Color.fromARGB(255, 100, 98, 98),
@@ -217,7 +234,7 @@ class HomeScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          title: Text(
+                          title: const Text(
                             "Climate",
                             style: TextStyle(
                               color: Color.fromARGB(255, 153, 148, 148),
@@ -225,12 +242,12 @@ class HomeScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          trailing: Icon(
+                          trailing: const Icon(
                             Icons.chevron_right,
                             color: Color.fromARGB(255, 153, 148, 148),
                           ),
                         ),
-                        ListTile(
+                        const ListTile(
                           leading: Icon(
                             CupertinoIcons.location_fill,
                             color: Color.fromARGB(255, 132, 129, 129),

@@ -4,9 +4,11 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     Key? key,
     required this.icon,
+    this.color,
   }) : super(key: key);
 
   final IconData icon;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +71,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: Icon(
           icon,
-          color: const Color.fromARGB(255, 112, 117, 125),
+          color:color ?? const Color.fromARGB(255, 112, 117, 125),
         ),
       ),
     );

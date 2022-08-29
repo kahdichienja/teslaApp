@@ -31,7 +31,6 @@ class HomeScreen extends StatelessWidget {
         rightCornerRadius: 32,
         backgroundColor: const Color(0xff2A2D32),
         onTap: (index) => (() => index),
-        //other params
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
